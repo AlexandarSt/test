@@ -1,0 +1,5 @@
+-U delu gde u tutorijalu pokazuje codepipeline u delu gde kaze da treba da ide ime "task definition" treba da se unese "container definition"
+
+- U delu gde pominje kod za logovanje na ECR, taj kod vise ne vazi nego treba da stoji "aws ecr get-login-password --region region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.region.amazonaws.com" i bez $() na pocetku i kraju koda.
+
+- Kada se kreira build u codebuild i kada se izabere Ubuntu, stavi Standard runtime, treba da se izabere aws/codebuild/standard:6.0 u polju za Image
