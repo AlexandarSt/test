@@ -3,14 +3,14 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 523562069057.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 097275601833.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
       - docker build -t cicd .
-      - docker tag cicd:latest 523562069057.dkr.ecr.us-east-1.amazonaws.com/cicd:latest
+      - docker tag cicd:latest 097275601833.dkr.ecr.us-east-1.amazonaws.com/cicd-ecr:latest
   post_build:
     commands:
-      - docker push 523562069057.dkr.ecr.us-east-1.amazonaws.com/cicd:latest
-      - printf '[{"name":"hello-world-cicd","imageUri":"%s"}]' 523562069057.dkr.ecr.us-east-1.amazonaws.com/cicd:latest > imagedefinitions.json
+      - docker push 097275601833.dkr.ecr.us-east-1.amazonaws.com/cicd-ecr:latest
+      - printf '[{"name":"cicd-container","imageUri":"%s"}]' 097275601833.dkr.ecr.us-east-1.amazonaws.com/cicd-ecr:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
