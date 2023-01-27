@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 
-app.get("/", (req, res) => res.send("Hello Youtube! This is new commit and change!"));
+app.get("/", (req, res) => res.send("CICD completed successfully! This is new commit and change!"));
 
 app.get("/health", (req, res) => {
   res.status(200);
-  res.send("healthy");
+  res.send("Target is healthy");
 });
 
 app.listen(3000, () => {
